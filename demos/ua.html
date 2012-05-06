@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>User Agent</title>
+        <style type="text/css">
+            ul {
+                font-size: 150%;
+            }
+        </style>
+        <script type="text/javascript">
+            function init() {
+                var dev  = document.getElementById("dev"),
+                    who  = document.getElementById("who"),
+                    what = document.getElementById("what");
+
+                if (UA) {
+                    if (who) {
+                        who.innerHTML = UA.whoami();
+                    }
+                    
+                    if (dev) {
+                        if (UA.isMobile()) {
+                            dev.innerHTML = "mobile device!";
+                        } else if (UA.isTablet()) {
+                            dev.innerHTML = "tablet!";
+                        } else if (UA.isTV()) {
+                            dev.innerHTML = "TV!";
+                        } else {
+                            dev.innerHTML = "computer?";
+                        }
+                    }
+                    
+                    if (what) {
+                        if (UA.isChrome()) {
+                            what.innerHTML = "Chrome or compatible";
+                        } else if (UA.isIE()) {
+                            what.innerHTML = "Internet Explorer";
+                        } else if (UA.isFirefox()) {
+                            what.innerHTML = "Firefox";
+                        } else if (UA.isGecko()) {
+                            what.innerHTML = "Firefox compatible";
+                        } else if (UA.isOpera()) {
+                            what.innerHTML = "Opera";
+                        /*} else if (UA.isIE()) {
+                            what.innerHTML = "Internet Explorer";*/
+                        } else if (UA.isSafari()) {
+                            what.innerHTML = "Safari";
+                        } else if (UA.isWebKit()) {
+                            what.innerHTML = "WebKit";
+                        }
+                    }
+                }
+            }
+            
+            if (window.attachEvent) {
+                document.onreadystatechange = init;
+            } else if (window.addEventListener) {
+                document.addEventListener("DOMContentLoaded", init, false);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Browser Detection</h1>
+        <ul>
+            <li>You are browsing from <span id="who"></span></li>
+            <li>I am running on a <span id="dev"></span></li>
+            <li>I am <span id="what"></span></li>
+        </ul>
+        <script type="text/javascript" src="ua.js"></script>
+    </body>
+</html>
