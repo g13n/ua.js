@@ -106,7 +106,7 @@ var UA = (function () {
          * @method isTV
          */
         isTV: function () {
-            return (/(googletv|sonydtv)/i).test(ua);
+            return (/googletv|sonydtv/i).test(ua);
         },
 
         /**
