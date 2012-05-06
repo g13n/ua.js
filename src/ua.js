@@ -16,7 +16,7 @@
 var UA = (function () {
     "use strict";
 
-    var ua = navigator && navigator.userAgent ? navigator.userAgent : "";
+    var ua = (window.navigator && navigator.userAgent) || "";
 
     return {
         /**
