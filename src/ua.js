@@ -59,6 +59,15 @@ var UA = (function () {
         },
 
         /**
+         * Return true if the browser is running on Kindle.
+         *
+         * @method isKindle
+         */
+        isKindle: function () {
+            return (/\W(kindle|silk)\W/i).test(ua);
+        },
+
+        /**
          * Return true if the browser is running on a mobile device.
          *
          * @method isMobile
