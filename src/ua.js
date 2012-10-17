@@ -13,10 +13,16 @@
  *
  * @module UA
  */
-var UA = (function () {
+var UA = (function (window, navigator) {
     "use strict";
 
     var ua = (window.navigator && navigator.userAgent) || "";
+
+    function detect(pattern) {
+        return function() {
+            return(pattern).test(ua);
+        };
+    }
 
     return {
         /**
@@ -24,18 +30,14 @@ var UA = (function () {
          *
          * @method isChrome
          */
-        isChrome: function () {
-            return (/webkit\W.*(chrome|chromium)\W/i).test(ua);
-        },
+        isChrome: detect(/webkit\W.*(chrome|chromium)\W/i),
 
         /**
          * Return true if the browser is Firefox.
          *
          * @method isFirefox
          */
-        isFirefox: function () {
-            return (/mozilla.*\Wfirefox\W/i).test(ua);
-        },
+        isFirefox: detect(/mozilla.*\Wfirefox\W/i);,
 
         /**
          * Return true if the browser is using the Gecko engine.
@@ -45,9 +47,7 @@ var UA = (function () {
          *
          * @method isGecko
          */
-        isGecko: function () {
-            return (/mozilla(?!.*webkit).*\Wgecko\W/i).test(ua);
-        },
+        isGecko: detect(/mozilla(?!.*webkit).*\Wgecko\W/i),
 
         /**
          * Return true if the browser is Internet Explorer.
@@ -63,69 +63,54 @@ var UA = (function () {
          *
          * @method isKindle
          */
-        isKindle: function () {
-            return (/\W(kindle|silk)\W/i).test(ua);
-        },
+        isKindle: detect(/\W(kindle|silk)\W/i),
 
         /**
          * Return true if the browser is running on a mobile device.
          *
          * @method isMobile
          */
-        isMobile: function () {
-            return (/(iphone|ipod|(android.*?mobile)|blackberry|nokia)/i).test(ua);
-        },
+        isMobile: detect(/(iphone|ipod|(android.*?mobile)|blackberry|nokia)/i),
 
         /**
          * Return true if we are running on Opera.
          *
          * @method isOpera
          */
-        isOpera: function () {
-            return (/opera.*\Wpresto\W/i).test(ua);
-        },
+        isOpera: detect(/opera.*\Wpresto\W/i),
 
         /**
          * Return true if the browser is Safari.
          *
          * @method isSafari
          */
-        isSafari: function () {
-            return (/webkit\W(?!.*chrome).*safari\W/i).test(ua);
-        },
+        isSafari: detect(/webkit\W(?!.*chrome).*safari\W/i),
 
         /**
          * Return true if the browser is running on a tablet.
          *
+         * One way to distinguish Android mobiles from tablets is that the
+         * mobiles contain the string "mobile" in their UserAgent string.
+         * If the word "Android" isn't followed by "mobile" then its a
+         * tablet.
+         *
          * @method isTablet
          */
-        isTablet: function () {
-            /*
-             * One way to distinguish Android mobiles from tablets is that the
-             * mobiles contain the string "mobile" in their UserAgent string.
-             * If the word "Android" isn't followed by "mobile" then its a
-             * tablet.
-             */
-            return (/(ipad|android(?!.*mobile))/i).test(ua);
-        },
+        isTablet: detect(/(ipad|android(?!.*mobile))/i),
 
         /**
          * Return true if the browser is running on a TV!
          *
          * @method isTV
          */
-        isTV: function () {
-            return (/googletv|sonydtv/i).test(ua);
-        },
+        isTV: detect(/googletv|sonydtv/i),
 
         /**
          * Return true if the browser is running on a WebKit browser.
          *
          * @method isWebKit
          */
-        isWebKit: function () {
-            return (/webkit\W/i).test(ua);
-        },
+        isWebKit: detect(/webkit\W/i),
 
         /**
          * Return the complete UserAgent string verbatim.
@@ -136,4 +121,4 @@ var UA = (function () {
             return ua;
         }
     };
-}());
+}(window, navigator));
