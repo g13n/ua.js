@@ -19,8 +19,8 @@ var UA = (function (window, navigator) {
     var ua = (window.navigator && navigator.userAgent) || "";
 
     function detect(pattern) {
-        return function() {
-            return(pattern).test(ua);
+        return function () {
+            return (pattern).test(ua);
         };
     }
 
@@ -37,7 +37,7 @@ var UA = (function (window, navigator) {
          *
          * @method isFirefox
          */
-        isFirefox: detect(/mozilla.*\Wfirefox\W/i);,
+        isFirefox: detect(/mozilla.*\Wfirefox\W/i),
 
         /**
          * Return true if the browser is using the Gecko engine.
