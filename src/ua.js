@@ -113,6 +113,41 @@ var UA = (function (window, navigator) {
         isWebKit: detect(/webkit\W/i),
 
         /**
+         * Return true if the browser is running on an Android browser.
+         *
+         * @method isAndroid
+         */
+        isAndroid: detect(/android/i),
+
+        /**
+         * Return true if the browser is running on any iOS device.
+         *
+         * @method isIOS
+         */
+        isIOS: detect(/(ipad|iphone|ipod)/i),
+
+        /**
+         * Return true if the browser is running on an iPad.
+         *
+         * @method isIPad
+         */
+        isIPad: detect(/ipad/i),
+
+        /**
+         * Return true if the browser is running on an iPhone.
+         *
+         * @method isIPhone
+         */
+        isIPhone: detect(/iphone/i),
+
+        /**
+         * Return true if the browser is running on an iPod touch.
+         *
+         * @method isIPod
+         */
+        isIPod: detect(/ipod/i),
+
+        /**
          * Return the complete UserAgent string verbatim.
          *
          * @method whoami
