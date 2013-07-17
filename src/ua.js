@@ -8,7 +8,7 @@
  * Apart from supporting detection of major browser vendors, the library also
  * supports detection of various devices.
  *
- * Copyright (c) 2012, Gopalarathnam Venkatesan
+ * Copyright (c) 2012-2013, Gopalarathnam Venkatesan
  * All rights reserved.
  *
  * @module UA
