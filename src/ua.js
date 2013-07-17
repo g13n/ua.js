@@ -55,7 +55,7 @@ var UA = (function (window, navigator) {
          * @method isIE
          */
         isIE: function () {
-            return navigator.appName === "Microsoft Internet Explorer";
+            return navigator.appName === "Microsoft Internet Explorer" || detect(/\bTrident\b/);
         },
 
         /**
