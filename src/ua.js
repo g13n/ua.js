@@ -71,7 +71,7 @@ var UA = (function (window, navigator) {
          *
          * @method isMobile
          */
-        isMobile: detect(/(iphone|ipod|(android.*?mobile)|blackberry|nokia)/i),
+        isMobile: detect(/(iphone|ipod|((?:android)?.*?mobile)|blackberry|nokia)/i),
 
         /**
          * Return true if we are running on Opera.
