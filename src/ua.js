@@ -55,8 +55,9 @@ var UA = (function (window, navigator) {
          * @method isIE
          */
         isIE: function () {
-            return navigator.appName === "Microsoft Internet Explorer" || detect(/\bTrident\b/);
-        },
+            return navigator.appName === "Microsoft Internet Explorer";
+        } || detect(/\bTrident\b/),
+
 
         /**
          * Return true if the browser is running on Kindle.
