@@ -16,7 +16,7 @@
  * @module UA
  */
 
-UA = (function (window, navigator) {
+window.UA = (function (window, navigator) {
     "use strict";
 
     var ua = (window.navigator && navigator.userAgent) || "";
