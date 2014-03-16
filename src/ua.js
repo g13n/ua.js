@@ -97,7 +97,7 @@ var UA = (function (window, navigator) {
          *
          * @method isTablet
          */
-        isTablet: detect(/(ipad|android(?!.*mobile))/i),
+        isTablet: detect(/(ipad|android(?!.*mobile)|tablet)/i),
 
         /**
          * Return true if the browser is running on a TV!
