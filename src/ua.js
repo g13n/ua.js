@@ -1,5 +1,7 @@
 /*jslint browser: true, regexp: true, maxerr: 50, indent: 4 */
 /**
+ * https://github.com/g13n/ua.js
+ *
  * A UserAgent detection library.
  *
  * This library relies on the navigator.userAgent property and hence does not
@@ -13,7 +15,8 @@
  *
  * @module UA
  */
-var UA = (function (window, navigator) {
+
+window.UA = (function (window, navigator) {
     "use strict";
 
     var ua = (window.navigator && navigator.userAgent) || "";
@@ -56,8 +59,35 @@ var UA = (function (window, navigator) {
          */
         isIE: function () {
             return navigator.appName === "Microsoft Internet Explorer";
-        } || detect(/\bTrident\b/),
+        } || detect(/MSIE/),
 
+        /**
+         * Return true if the browser is Internet Explorer 7.
+         *
+         * @method isIE7
+         */
+        isIE7 : detect(/MSIE 7/),
+
+        /**
+         * Return true if the browser is Internet Explorer 8.
+         *
+         * @method isIE8
+         */
+        isIE8 : detect(/MSIE 8/),
+
+        /**
+         * Return true if the browser is Internet Explorer 9.
+         *
+         * @method isIE9
+         */
+        isIE9 : detect(/MSIE 9/),
+
+        /**
+         * Return true if the browser is Internet Explorer 10.
+         *
+         * @method isIE10
+         */
+        isIE10 : detect(/MSIE 10/),
 
         /**
          * Return true if the browser is running on Kindle.
