@@ -13,18 +13,18 @@
  *
  * @module UA
  */
-var UA = (function (window, navigator) {
+(function (window, navigator) {
     "use strict";
 
-    var ua = (window.navigator && navigator.userAgent) || "";
+    var userAgent = (window.navigator && navigator.userAgent) || "";
 
     function detect(pattern) {
         return function () {
-            return (pattern).test(ua);
+            return (pattern).test(userAgent);
         };
     }
 
-    return {
+    var UA =  {
         /**
          * Return true if the browser is Chrome or compatible.
          *
@@ -154,7 +154,18 @@ var UA = (function (window, navigator) {
          * @method whoami
          */
         whoami: function () {
-            return ua;
+            return userAgent;
         }
     };
+
+    if ( typeof define === 'function' && define.amd ) {
+        // AMD
+        define( [], function() {
+            return UA;
+        } );
+    } else {
+        // browser global
+        window.UA = UA;
+    }
+
 }(window, navigator));
