@@ -163,6 +163,9 @@
         define( [], function() {
             return UA;
         } );
+    } else if (typeof module !== 'undefined' && module.exports) {
+        module.exports = UA.attach;
+        module.exports.UA = UA;
     } else {
         // browser global
         window.UA = UA;
