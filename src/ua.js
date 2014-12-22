@@ -55,8 +55,14 @@
          * @method isIE
          */
         isIE: function () {
-            return navigator.appName === "Microsoft Internet Explorer";
-        } || detect(/\bTrident\b/),
+            if (navigator.appName === "Microsoft Internet Explorer") {
+                return true;
+            } else if (detect(/\bTrident\b/)) {
+                return true;
+            } else {
+                return false;
+            }
+        },
 
 
         /**
