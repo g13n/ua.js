@@ -31,7 +31,9 @@
                     }
                     
                     if (what) {
-                        if (UA.isChrome()) {
+                        if (UA.isOpera()) {
+                            what.innerHTML = "Opera";
+                        } else if (UA.isChrome()) {
                             what.innerHTML = "Chrome or compatible";
                         } else if (UA.isIE()) {
                             what.innerHTML = "Internet Explorer";
@@ -39,8 +41,6 @@
                             what.innerHTML = "Firefox";
                         } else if (UA.isGecko()) {
                             what.innerHTML = "Firefox compatible";
-                        } else if (UA.isOpera()) {
-                            what.innerHTML = "Opera";
                         /*} else if (UA.isIE()) {
                             what.innerHTML = "Internet Explorer";*/
                         } else if (UA.isSafari()) {

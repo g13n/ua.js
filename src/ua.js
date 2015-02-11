@@ -84,7 +84,7 @@
          *
          * @method isOpera
          */
-        isOpera: detect(/opera.*\Wpresto\W/i),
+        isOpera: detect(/opera.*\Wpresto\W|OPR/i),
 
         /**
          * Return true if the browser is Safari.
